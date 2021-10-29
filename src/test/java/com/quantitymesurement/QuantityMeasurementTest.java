@@ -159,4 +159,10 @@ public class QuantityMeasurementTest {
         double inch = quantityMeasurement.yardToInch(1.0);
         Assertions.assertEquals(36,inch);
     }
+    /* 5: 36 in = 1 yd */
+    @Test
+    public void givenThirtySixInch_ConvertIntoOneYard() {
+        double yard = quantityMeasurement.inchToYard(36.0);
+        Assertions.assertEquals(1,yard);
+    }
 }
