@@ -125,4 +125,11 @@ public class QuantityMeasurementTest {
         double inch2 =quantityMeasurement.compareLengths(9.0);
         Assertions.assertNotEquals(inch1,inch2);
     }
+    /* Given Inch When Equal Should Return True */
+    @Test
+    public void givenInch_WhenEqual_ShouldReturnTrue() {
+        double inch1 =quantityMeasurement.compareLengths(9.0);
+        double inch2 =quantityMeasurement.compareLengths(9.0);
+        Assertions.assertEquals(inch1,inch2);
+    }
 }
