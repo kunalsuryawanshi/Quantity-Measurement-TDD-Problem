@@ -153,4 +153,10 @@ public class QuantityMeasurementTest {
         double yard = quantityMeasurement.inchToYard(1.0);
         Assertions.assertNotEquals(1,yard);
     }
+    /* 4: 1yd = 36in */
+    @Test
+    public void givenOneYard_EqualToThirtySixInch_ShouldReturnTrue() {
+        double inch = quantityMeasurement.yardToInch(1.0);
+        Assertions.assertEquals(36,inch);
+    }
 }
