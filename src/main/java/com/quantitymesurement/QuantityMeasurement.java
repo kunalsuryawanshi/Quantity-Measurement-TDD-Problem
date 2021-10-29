@@ -31,4 +31,13 @@ public class QuantityMeasurement {
     public boolean compareDataType(Object length1,Object length2) {
         return length1.getClass() == length2.getClass();
     }
+
+    /*
+     * Purpose : To Convert Feet To Yard
+     * @pram: feet
+     * return: double
+     */
+    public double feetToYard(Double feet) {
+        return feet/3;
+    }
 }

@@ -132,4 +132,13 @@ public class QuantityMeasurementTest {
         double inch2 =quantityMeasurement.compareLengths(9.0);
         Assertions.assertEquals(inch1,inch2);
     }
+    /*
+     * UC2: Compare lengths 3ft = 1yd
+     * 1: 3ft = 1yd
+     */
+    @Test
+    public void givenFeet_ShouldReturnInYard() {
+        double yard = quantityMeasurement.feetToYard(3.0);
+        Assertions.assertEquals(1,yard);
+    }
 }
