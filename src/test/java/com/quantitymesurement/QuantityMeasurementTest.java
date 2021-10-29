@@ -141,4 +141,10 @@ public class QuantityMeasurementTest {
         double yard = quantityMeasurement.feetToYard(3.0);
         Assertions.assertEquals(1,yard);
     }
+    /* 2: 1ft != 1yd */
+    @Test
+    public void givenOneFeet_EqualsOneYards_ShouldReturnFalse() {
+        double yard = quantityMeasurement.feetToYard(1.0);
+        Assertions.assertNotEquals(1,yard);
+    }
 }
