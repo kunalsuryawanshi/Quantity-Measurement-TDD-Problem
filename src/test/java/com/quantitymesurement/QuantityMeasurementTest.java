@@ -74,4 +74,13 @@ public class QuantityMeasurementTest {
         double feet2 =quantityMeasurement.compareLengths(9.0);
         Assertions.assertEquals(feet1,feet2);
     }
+    /*
+     * TC 1.7-1.12 : Performing similar test for Inch
+     * 1: Null Check
+     */
+    @Test
+    public void givenInch_WhenNotNull_ShouldReturnFalse() {
+        boolean res = quantityMeasurement.nullCheck(36.0,36.0);
+        Assertions.assertFalse(res);
+    }
 }
