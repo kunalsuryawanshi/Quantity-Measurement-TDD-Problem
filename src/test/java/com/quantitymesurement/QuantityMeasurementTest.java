@@ -67,4 +67,11 @@ public class QuantityMeasurementTest {
         double feet2 =quantityMeasurement.compareLengths(9.0);
         Assertions.assertNotEquals(feet1,feet2);
     }
+    /* Given Feet When Equal Should Return True */
+    @Test
+    public void givenFeet_WhenEqual_ShouldReturnTrue() {
+        double feet1 =quantityMeasurement.compareLengths(9.0);
+        double feet2 =quantityMeasurement.compareLengths(9.0);
+        Assertions.assertEquals(feet1,feet2);
+    }
 }
