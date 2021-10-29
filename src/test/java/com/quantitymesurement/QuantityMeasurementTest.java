@@ -19,4 +19,11 @@ public class QuantityMeasurementTest {
         boolean res = quantityMeasurement.compareLengths(0.0,0.0);
         Assertions.assertTrue(res);
     }
+    // Given feet When null should return True
+    @Test
+    public void givenFeet_WhenNull_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean res = quantityMeasurement.nullCheck(null,null);
+        Assertions.assertTrue(res);
+    }
 }
