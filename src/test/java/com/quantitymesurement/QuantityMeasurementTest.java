@@ -95,4 +95,18 @@ public class QuantityMeasurementTest {
         boolean res = quantityMeasurement.nullCheck(null,12.0);
         Assertions.assertTrue(res);
     }
+    /*
+     * 3: Inch Type Check
+     * Given Feet When Different Data Type Should Return False
+     */
+    @Test
+    public void givenInch_WhenIntegerType_ShouldReturnFalse() {
+        boolean res = quantityMeasurement.compareDataType(1, 1.0);
+        Assertions.assertFalse(res);
+    }
+    @Test
+    public void givenInch_WhenStringType_ShouldReturnFalse() {
+        boolean res = quantityMeasurement.compareDataType("1", 1.0);
+        Assertions.assertFalse(res);
+    }
 }
