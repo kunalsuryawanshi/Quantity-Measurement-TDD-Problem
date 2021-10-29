@@ -115,4 +115,14 @@ public class QuantityMeasurementTest {
         boolean res = quantityMeasurement.compareDataType(12.0, 1.0);
         Assertions.assertTrue(res);
     }
+    /*
+     * 4: Value Check for equality
+     * Given Inch When Not Equal Should Return False
+     */
+    @Test
+    public void givenInch_WhenNotEqual_ShouldReturnFalse() {
+        double inch1 =quantityMeasurement.compareLengths(1.0);
+        double inch2 =quantityMeasurement.compareLengths(9.0);
+        Assertions.assertNotEquals(inch1,inch2);
+    }
 }
