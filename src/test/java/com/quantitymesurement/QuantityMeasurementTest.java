@@ -57,4 +57,14 @@ public class QuantityMeasurementTest {
         boolean res = quantityMeasurement.compareDataType(1.0, 10.0);
         Assertions.assertTrue(res);
     }
+    /*
+     * 4: Value Check for equality
+     * Given Feet When Not Equal Should Return False
+     */
+    @Test
+    public void givenFeet_WhenNotEqual_ShouldReturnFalse() {
+        double feet1 =quantityMeasurement.compareLengths(1.0);
+        double feet2 =quantityMeasurement.compareLengths(9.0);
+        Assertions.assertNotEquals(feet1,feet2);
+    }
 }

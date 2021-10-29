@@ -12,6 +12,9 @@ public class QuantityMeasurement {
     public boolean compareLengths(Object length1,Object length2) {
         return length1.equals(length2);
     }
+    public double compareLengths(Double length) {
+        return length;
+    }
     /*
      * Purpose : To check given feet null or not
      * @pram: length1, length2
