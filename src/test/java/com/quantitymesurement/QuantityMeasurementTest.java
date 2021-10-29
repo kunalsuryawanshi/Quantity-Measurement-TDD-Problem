@@ -83,4 +83,16 @@ public class QuantityMeasurementTest {
         boolean res = quantityMeasurement.nullCheck(36.0,36.0);
         Assertions.assertFalse(res);
     }
+    /* Given Inch When Null Should Return True */
+    @Test
+    public void givenInch_WhenNull_ShouldReturnTrue() {
+        boolean res = quantityMeasurement.nullCheck(null,null);
+        Assertions.assertTrue(res);
+    }
+    /* Given Single Inch Value When Null Should Return True */
+    @Test
+    public void givenSingleInch_WhenNull_ShouldReturnTrue() {
+        boolean res = quantityMeasurement.nullCheck(null,12.0);
+        Assertions.assertTrue(res);
+    }
 }
