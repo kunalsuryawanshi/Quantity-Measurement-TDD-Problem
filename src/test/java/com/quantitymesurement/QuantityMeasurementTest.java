@@ -147,4 +147,10 @@ public class QuantityMeasurementTest {
         double yard = quantityMeasurement.feetToYard(1.0);
         Assertions.assertNotEquals(1,yard);
     }
+    /* 3: 1in != 1yd */
+    @Test
+    public void givenOneInch_NotEqualToOneYard() {
+        double yard = quantityMeasurement.inchToYard(1.0);
+        Assertions.assertNotEquals(1,yard);
+    }
 }

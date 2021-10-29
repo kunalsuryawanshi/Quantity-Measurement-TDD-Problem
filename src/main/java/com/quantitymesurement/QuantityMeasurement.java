@@ -40,4 +40,12 @@ public class QuantityMeasurement {
     public double feetToYard(Double feet) {
         return feet/3;
     }
+
+    public double inchToYard(Double inch) {
+        return inch/36;
+    }
+
+    public double yardToInch(double yard) {
+        return yard*36;
+    }
 }
