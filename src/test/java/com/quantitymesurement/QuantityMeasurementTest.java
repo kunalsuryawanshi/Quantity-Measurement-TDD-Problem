@@ -52,4 +52,9 @@ public class QuantityMeasurementTest {
         boolean res = quantityMeasurement.compareDataType("9", 1.0);
         Assertions.assertFalse(res);
     }
+    @Test
+    public void givenFeet_WhenDoubleType_ShouldReturnTrue() {
+        boolean res = quantityMeasurement.compareDataType(1.0, 10.0);
+        Assertions.assertTrue(res);
+    }
 }
