@@ -37,15 +37,25 @@ public class QuantityMeasurement {
      * @pram: feet
      * return: double
      */
-    public double feetToYard(Double feet) {
+    public double feetToYard(double feet) {
         return feet/3;
     }
-
-    public double inchToYard(Double inch) {
+    /*
+     * Purpose : To Convert inch To Yard
+     */
+    public double inchToYard(double inch) {
         return inch/36;
     }
-
+    /*
+     * Purpose : To Convert yard To inch
+     */
     public double yardToInch(double yard) {
         return yard*36;
+    }
+    /*
+     * Purpose : To Convert yard To feet
+     */
+    public double yardToFeet(double yard) {
+        return yard*3;
     }
 }

@@ -161,8 +161,14 @@ public class QuantityMeasurementTest {
     }
     /* 5: 36 in = 1 yd */
     @Test
-    public void givenThirtySixInch_ConvertIntoOneYard() {
+    public void givenThirtySixInch_EqualToOneYard() {
         double yard = quantityMeasurement.inchToYard(36.0);
         Assertions.assertEquals(1,yard);
+    }
+    /* 6: 1yd = 3ft */
+    @Test
+    public void givenOneYard_EqualToThreeFeet() {
+        double feet = quantityMeasurement.yardToFeet(1.0);
+        Assertions.assertEquals(3,feet);
     }
 }
