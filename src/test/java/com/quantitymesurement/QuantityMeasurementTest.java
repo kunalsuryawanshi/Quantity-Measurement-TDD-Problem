@@ -10,4 +10,11 @@ public class QuantityMeasurementTest {
         Feet feet2 = new Feet(0.0);
         Assertions.assertEquals(feet1, feet2);
     }
+
+    @Test
+    public void givenFeetNull_ShouldReturnFalse() {
+        Feet feet = new Feet(null);
+        boolean res = feet.equals(null);
+        Assertions.assertFalse(res);
+    }
 }
