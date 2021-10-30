@@ -36,20 +36,34 @@ public class QuantityMeasurementTest {
     public void givenDifferentValueFeet1AndFeet2_ShouldReturnNotEqual() {
         Feet feet1 = new Feet(8.0);
         Feet feet2 = new Feet(11.0);
-        Assertions.assertNotEquals(feet1,feet2);
+        Assertions.assertNotEquals(feet1, feet2);
     }
 
     @Test
     public void givenSameValueFeet1AndFeet2_ShouldReturnEqual() {
         Feet feet1 = new Feet(8.0);
         Feet feet2 = new Feet(8.0);
-        Assertions.assertEquals(feet1,feet2);
+        Assertions.assertEquals(feet1, feet2);
     }
 
     @Test
     public void givenInchNull_ShouldReturnFalse() {
         Inch inch = new Inch(0.0);
         boolean res = inch.equals(null);
+        Assertions.assertFalse(res);
+    }
+
+    @Test
+    public void givenInch_WhenStringType_ShouldReturnFalse() {
+        Inch inch = new Inch(0.0);
+        boolean res = inch.equals("abc");
+        Assertions.assertFalse(res);
+    }
+
+    @Test
+    public void givenInch_WhenIntegerType_ShouldReturnFalse() {
+        Inch inch = new Inch(0.0);
+        boolean res = inch.equals(11);
         Assertions.assertFalse(res);
     }
 }
