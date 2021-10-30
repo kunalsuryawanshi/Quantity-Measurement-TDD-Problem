@@ -45,4 +45,11 @@ public class QuantityMeasurementTest {
         Feet feet2 = new Feet(8.0);
         Assertions.assertEquals(feet1,feet2);
     }
+
+    @Test
+    public void givenInchNull_ShouldReturnFalse() {
+        Inch inch = new Inch(0.0);
+        boolean res = inch.equals(null);
+        Assertions.assertFalse(res);
+    }
 }
