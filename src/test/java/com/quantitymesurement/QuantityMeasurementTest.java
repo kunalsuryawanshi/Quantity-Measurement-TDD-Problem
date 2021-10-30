@@ -17,4 +17,18 @@ public class QuantityMeasurementTest {
         boolean res = feet.equals(null);
         Assertions.assertFalse(res);
     }
+
+    @Test
+    public void givenFeet_WhenStringType_ShouldReturnFalse() {
+        Feet feet = new Feet(0.0);
+        boolean res = feet.equals("abc");
+        Assertions.assertFalse(res);
+    }
+
+    @Test
+    public void givenFeet_WhenIntegerType_ShouldReturnFalse() {
+        Feet feet = new Feet(0.0);
+        boolean res = feet.equals(1);
+        Assertions.assertFalse(res);
+    }
 }
