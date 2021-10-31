@@ -41,4 +41,10 @@ public class UnitMeasurementTest {
         double feet = convertor.yardIntoFeet(1.0);
         Assertions.assertEquals(3.0, feet);
     }
+
+    @Test
+    public void given2Inch_ShouldConvertInto5Centimeter() {
+        double centimeter = convertor.inchToCentimeter(2.0);
+        Assertions.assertEquals(5.0, centimeter);
+    }
 }

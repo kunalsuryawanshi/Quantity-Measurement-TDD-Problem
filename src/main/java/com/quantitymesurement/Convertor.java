@@ -1,10 +1,14 @@
 package com.quantitymesurement;
 
+/**
+ * @author KUNAL SURYAWANSHI
+ */
 public class Convertor {
     private static final double FEET_TO_YARD = 3.0;
     private static final double YARD_TO_INCH = 36.0;
     private static final double INCH_TO_YARD = 36.0;
     private static final double YARD_TO_FEET = 3.0;
+    private static final double INCH_TO_CENTIMETER = 2.5;
 
     /**
      * @param feet
@@ -36,5 +40,13 @@ public class Convertor {
      */
     public double yardIntoFeet(double yard) {
         return yard * YARD_TO_FEET;
+    }
+
+    /**
+     * @param inch
+     * @return inch to centimeter
+     */
+    public double inchToCentimeter(double inch) {
+        return inch * INCH_TO_CENTIMETER;
     }
 }
