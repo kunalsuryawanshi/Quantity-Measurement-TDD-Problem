@@ -20,7 +20,7 @@ public class Length {
      * Purpose : Compare the Lengths
      *
      * @param that : Taking Lengths
-     * @return : if Matches then returning Values
+     * @return : if Matches then returning Converted Values
      */
     public boolean compare(Length that) {
         if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.INCH))
@@ -38,6 +38,18 @@ public class Length {
         if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.CENTIMETER))
             return Double.compare(this.value * INCH_TO_CENTIMETER, that.value) == 0;
         return false;
+    }
+
+    /**
+     * Purpose : Given Two Lengths Should add and return Expected Value
+     *
+     * @param that : Taking Lengths
+     * @return addition of the two lengths
+     */
+    public double addTwoLengths(Length that) {
+        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.INCH))
+            return this.value + that.value;
+        return 0;
     }
 
     @Override
