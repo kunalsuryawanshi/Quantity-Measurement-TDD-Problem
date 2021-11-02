@@ -191,4 +191,12 @@ public class QuantityMeasurementTest {
         double add = inch1.addTwoLengths(inch2);
         Assertions.assertEquals(4.0, add);
     }
+
+    @Test
+    public void given2InchPlus2Inch_WhenExpectedValueWrong_ShouldReturnNotEqual() {
+        Length inch1 = new Length(Length.Unit.INCH, 2.0);
+        Length inch2 = new Length(Length.Unit.INCH, 2.0);
+        double add = inch1.addTwoLengths(inch2);
+        Assertions.assertNotEquals(2.0, add);
+    }
 }
