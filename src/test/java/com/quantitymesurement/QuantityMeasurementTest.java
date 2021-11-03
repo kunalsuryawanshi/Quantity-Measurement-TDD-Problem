@@ -296,4 +296,12 @@ public class QuantityMeasurementTest {
         boolean compare = litre.compare(millilitre);
         Assertions.assertTrue(compare);
     }
+
+    @Test
+    public void given1GallonAnd3$78Litres_WhenAdd_ShouldReturn7$57Litres() {
+        Volume gallon = new Volume(Volume.Unit.GALLON, 1.0);
+        Volume litre = new Volume(Volume.Unit.LITRE, 3.78);
+        double add = gallon.addTwoVolumes(litre);
+        Assertions.assertEquals(7.56, add);
+    }
 }
