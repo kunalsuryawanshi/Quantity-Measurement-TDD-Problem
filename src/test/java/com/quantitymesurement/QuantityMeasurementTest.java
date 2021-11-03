@@ -434,4 +434,11 @@ public class QuantityMeasurementTest {
         boolean nullCheck = Fahrenheit.equals(null);
         Assertions.assertFalse(nullCheck);
     }
+
+    @Test
+    public void givenFahrenheit1AndFahrenheit2_WhenEqualType_ShouldReturnEqual() {
+        Temprature Fahrenheit1 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Temprature Fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Assertions.assertEquals(Fahrenheit1.getClass(), Fahrenheit2.getClass());
+    }
 }
