@@ -412,4 +412,19 @@ public class QuantityMeasurementTest {
         double add = tonne.addTwoWeights(gram);
         Assertions.assertEquals(1001.0, add);
     }
+
+    //UC8
+    @Test
+    public void givenFahrenheitAndFahrenheit_ShouldReturnEqual() {
+        Temprature Fahrenheit1 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Temprature Fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Assertions.assertEquals(Fahrenheit1, Fahrenheit2);
+    }
+
+    @Test
+    public void givenFahrenheitAndFahrenheit_ShouldReturnNotEqual() {
+        Temprature Fahrenheit1 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Temprature Fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 200.0);
+        Assertions.assertNotEquals(Fahrenheit1, Fahrenheit2);
+    }
 }
