@@ -375,4 +375,25 @@ public class QuantityMeasurementTest {
         Weight tonne2 = new Weight(Weight.Unit.TONNE, 1.0);
         Assertions.assertEquals(tonne1, tonne2);
     }
+
+    @Test
+    public void given1KgAnd1Kg_WhenCompare_ShouldReturnNotEqual() {
+        Weight kg1 = new Weight(Weight.Unit.KILOGRAM, 1.0);
+        Weight kg2 = new Weight(Weight.Unit.KILOGRAM, 2.0);
+        Assertions.assertNotEquals(kg1, kg2);
+    }
+
+    @Test
+    public void given1000gramAnd1000gram_WhenCompare_ShouldReturnNotEqual() {
+        Weight gram1 = new Weight(Weight.Unit.GRAMS, 1000.0);
+        Weight gram2 = new Weight(Weight.Unit.GRAMS, 2000.0);
+        Assertions.assertNotEquals(gram1, gram2);
+    }
+
+    @Test
+    public void given1TonneAnd1Tonne_WhenCompare_ShouldReturnNotEqual() {
+        Weight tonne1 = new Weight(Weight.Unit.TONNE, 1.0);
+        Weight tonne2 = new Weight(Weight.Unit.TONNE, 3.0);
+        Assertions.assertNotEquals(tonne1, tonne2);
+    }
 }
