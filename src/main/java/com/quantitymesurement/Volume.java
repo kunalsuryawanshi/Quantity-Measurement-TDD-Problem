@@ -38,6 +38,8 @@ public class Volume {
     public double addTwoVolumes(Volume that) {
         if (this.unit.equals(Unit.GALLON) && that.unit.equals(Unit.LITRE))
             return this.value * GALLON_TO_LITRE + that.value;
+        if (this.unit.equals(Unit.LITRE) && that.unit.equals(Unit.MILLI_LITRE))
+            return this.value + that.value / LITRE_TO_ML;
         return 0;
     }
 

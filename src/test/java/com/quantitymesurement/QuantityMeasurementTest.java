@@ -304,4 +304,12 @@ public class QuantityMeasurementTest {
         double add = gallon.addTwoVolumes(litre);
         Assertions.assertEquals(7.56, add);
     }
+
+    @Test
+    public void given1LitreAnd1000MilliLitre_WhenAdd_ShouldReturn2Litres() {
+        Volume litre = new Volume(Volume.Unit.LITRE, 1.0);
+        Volume ml = new Volume(Volume.Unit.MILLI_LITRE, 1000.0);
+        double add = litre.addTwoVolumes(ml);
+        Assertions.assertEquals(2.0, add);
+    }
 }
