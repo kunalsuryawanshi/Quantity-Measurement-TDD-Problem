@@ -223,4 +223,21 @@ public class QuantityMeasurementTest {
         double add = inch.addTwoLengths(centimeter);
         Assertions.assertEquals(3.0, add);
     }
+
+    //UC5
+    @Test
+    public void given1GallonAnd3$78Litres_WhenCompare_ShouldReturnEqual() {
+        Volume gallon = new Volume(Volume.Unit.GALLON, 1.0);
+        Volume litre = new Volume(Volume.Unit.LITRE, 3.78);
+        boolean compare = gallon.compare(litre);
+        Assertions.assertTrue(compare);
+    }
+
+    @Test
+    public void given1LitreAnd1000ml_WhenCompare_ShouldReturnEqual() {
+        Volume litre = new Volume(Volume.Unit.LITRE, 1.0);
+        Volume millilitre = new Volume(Volume.Unit.MILLI_LITRE, 1000.0);
+        boolean compare = litre.compare(millilitre);
+        Assertions.assertTrue(compare);
+    }
 }
