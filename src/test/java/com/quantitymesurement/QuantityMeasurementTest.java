@@ -334,4 +334,24 @@ public class QuantityMeasurementTest {
         Assertions.assertFalse(res);
     }
 
+    @Test
+    public void givenKg_WhenSameType_ShouldReturnEqual() {
+        Weight kg1 = new Weight(Weight.Unit.KILOGRAM, 1.0);
+        Weight kg2 = new Weight(Weight.Unit.KILOGRAM, 1.0);
+        Assertions.assertEquals(kg1.getClass(), kg2.getClass());
+    }
+
+    @Test
+    public void givenGram_WhenSameType_ShouldReturnEqual() {
+        Weight gram1 = new Weight(Weight.Unit.GRAMS, 1000.0);
+        Weight gram2 = new Weight(Weight.Unit.GRAMS, 1000.0);
+        Assertions.assertEquals(gram1, gram2);
+    }
+
+    @Test
+    public void givenTonne_WhenSameType_ShouldReturnEqual() {
+        Weight tonne1 = new Weight(Weight.Unit.TONNE, 1.0);
+        Weight tonne2 = new Weight(Weight.Unit.TONNE, 1.0);
+        Assertions.assertEquals(tonne1, tonne2);
+    }
 }
