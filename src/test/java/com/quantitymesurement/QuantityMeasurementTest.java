@@ -226,6 +226,62 @@ public class QuantityMeasurementTest {
 
     //UC5
     @Test
+    public void givenGallon_WhenNull_ShouldReturnFalse() {
+        Volume gallon = new Volume(Volume.Unit.GALLON, null);
+        boolean nullCheck = gallon.equals(null);
+        Assertions.assertFalse(nullCheck);
+    }
+
+    @Test
+    public void givenLitre_WhenNull_ShouldReturnFalse() {
+        Volume litre = new Volume(Volume.Unit.LITRE, null);
+        boolean nullCheck = litre.equals(null);
+        Assertions.assertFalse(nullCheck);
+    }
+
+    @Test
+    public void givenOneLitreAndOneLitre_ShouldReturnEqual() {
+        Volume litre1 = new Volume(Volume.Unit.LITRE, 1.0);
+        Volume litre2 = new Volume(Volume.Unit.LITRE, 1.0);
+        Assertions.assertEquals(litre1, litre2);
+    }
+
+    @Test
+    public void givenOneGallonAndOneGallon_ShouldReturnEqual() {
+        Volume gallon1 = new Volume(Volume.Unit.GALLON, 1.0);
+        Volume gallon2 = new Volume(Volume.Unit.GALLON, 1.0);
+        Assertions.assertEquals(gallon1, gallon2);
+    }
+
+    @Test
+    public void givenLitre_WhenDifferent_ShouldReturnNotEqual() {
+        Volume litre1 = new Volume(Volume.Unit.LITRE, 1.0);
+        Volume litre2 = new Volume(Volume.Unit.LITRE, 2.0);
+        Assertions.assertNotEquals(litre1, litre2);
+    }
+
+    @Test
+    public void givenGallon_WhenDifferent_ShouldReturnNotEqual() {
+        Volume gallon1 = new Volume(Volume.Unit.GALLON, 1.0);
+        Volume gallon2 = new Volume(Volume.Unit.GALLON, 2.0);
+        Assertions.assertNotEquals(gallon1, gallon2);
+    }
+
+    @Test
+    public void givenGallonAndGallon_WhenTypeSame_ShouldReturnEqual() {
+        Volume gallon1 = new Volume(Volume.Unit.GALLON, 1.0);
+        Volume gallon2 = new Volume(Volume.Unit.GALLON, 1.0);
+        Assertions.assertEquals(gallon1.getClass(), gallon2.getClass());
+    }
+
+    @Test
+    public void givenLitreAndLitre_WhenTypeSame_ShouldReturnEqual() {
+        Volume litre1 = new Volume(Volume.Unit.LITRE, 1.0);
+        Volume litre2 = new Volume(Volume.Unit.LITRE, 1.0);
+        Assertions.assertEquals(litre1.getClass(), litre2.getClass());
+    }
+
+    @Test
     public void given1GallonAnd3$78Litres_WhenCompare_ShouldReturnEqual() {
         Volume gallon = new Volume(Volume.Unit.GALLON, 1.0);
         Volume litre = new Volume(Volume.Unit.LITRE, 3.78);

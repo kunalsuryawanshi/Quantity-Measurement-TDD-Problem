@@ -35,5 +35,11 @@ public class Volume {
         return Objects.equals(value, volume.value) && unit == volume.unit;
     }
 
+    public double addTwoVolumes(Volume that) {
+        if (this.unit.equals(Unit.GALLON) && that.unit.equals(Unit.LITRE))
+            return this.value * GALLON_TO_LITRE + that.value;
+        return 0;
+    }
+
     enum Unit {GALLON, LITRE, MILLI_LITRE}
 }
