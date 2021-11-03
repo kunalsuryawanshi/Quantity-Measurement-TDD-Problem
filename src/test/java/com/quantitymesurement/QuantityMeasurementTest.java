@@ -312,4 +312,26 @@ public class QuantityMeasurementTest {
         double add = litre.addTwoVolumes(ml);
         Assertions.assertEquals(2.0, add);
     }
+
+    @Test
+    public void givenKg_WhenNull_ShouldReturnFalse() {
+        Weight kg = new Weight(Weight.Unit.KILOGRAM, null);
+        boolean res = kg.equals(null);
+        Assertions.assertFalse(res);
+    }
+
+    @Test
+    public void givenGrams_WhenNull_ShouldReturnFalse() {
+        Weight grams = new Weight(Weight.Unit.GRAMS, null);
+        boolean res = grams.equals(null);
+        Assertions.assertFalse(res);
+    }
+
+    @Test
+    public void givenTonne_WhenNull_ShouldReturnFalse() {
+        Weight tonne = new Weight(Weight.Unit.TONNE, null);
+        boolean res = tonne.equals(null);
+        Assertions.assertFalse(res);
+    }
+
 }
