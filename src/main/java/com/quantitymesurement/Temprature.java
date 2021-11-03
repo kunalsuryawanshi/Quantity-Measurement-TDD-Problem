@@ -21,5 +21,14 @@ public class Temprature {
         return Double.compare(that.value, value) == 0;
     }
 
+    /**
+     * Purpose : To Convert Value Fahrenheit to Celcius
+     *
+     * @return Celcius
+     */
+    public double compare() {
+        return (this.value - 32) * 5 / 9;
+    }
+
     enum Unit {FAHRENHEIT}
 }

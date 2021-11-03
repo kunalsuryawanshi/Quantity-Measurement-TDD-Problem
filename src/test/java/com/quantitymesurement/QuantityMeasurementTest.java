@@ -416,16 +416,16 @@ public class QuantityMeasurementTest {
     //UC8
     @Test
     public void givenFahrenheitAndFahrenheit_ShouldReturnEqual() {
-        Temprature Fahrenheit1 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
-        Temprature Fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
-        Assertions.assertEquals(Fahrenheit1, Fahrenheit2);
+        Temprature fahrenheit1 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Temprature fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Assertions.assertEquals(fahrenheit1, fahrenheit2);
     }
 
     @Test
     public void givenFahrenheitAndFahrenheit_ShouldReturnNotEqual() {
-        Temprature Fahrenheit1 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
-        Temprature Fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 200.0);
-        Assertions.assertNotEquals(Fahrenheit1, Fahrenheit2);
+        Temprature fahrenheit1 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Temprature fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 200.0);
+        Assertions.assertNotEquals(fahrenheit1, fahrenheit2);
     }
 
     @Test
@@ -437,8 +437,15 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenFahrenheit1AndFahrenheit2_WhenEqualType_ShouldReturnEqual() {
-        Temprature Fahrenheit1 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
-        Temprature Fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
-        Assertions.assertEquals(Fahrenheit1.getClass(), Fahrenheit2.getClass());
+        Temprature fahrenheit1 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Temprature fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        Assertions.assertEquals(fahrenheit1.getClass(), fahrenheit2.getClass());
+    }
+
+    @Test
+    public void given212FahrenheitAnd100C_WhenCompared_ShouldReturnEqual() {
+        Temprature fahrenheit = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        double celsius = fahrenheit.compare();
+        Assertions.assertEquals(100.0,celsius);
     }
 }
