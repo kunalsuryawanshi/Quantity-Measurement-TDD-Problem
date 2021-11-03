@@ -53,6 +53,8 @@ public class Length {
             return this.value * FEET_TO_INCH + that.value;
         if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.FEET))
             return this.value * FEET_TO_INCH + that.value * FEET_TO_INCH;
+        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.CENTIMETER))
+            return this.value + that.value / INCH_TO_CENTIMETER;
         return 0;
     }
 
