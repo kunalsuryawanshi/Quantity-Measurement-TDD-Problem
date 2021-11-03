@@ -427,4 +427,11 @@ public class QuantityMeasurementTest {
         Temprature Fahrenheit2 = new Temprature(Temprature.Unit.FAHRENHEIT, 200.0);
         Assertions.assertNotEquals(Fahrenheit1, Fahrenheit2);
     }
+
+    @Test
+    public void givenFahrenheit_WhenNull_ShouldReturnFalse() {
+        Temprature Fahrenheit = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
+        boolean nullCheck = Fahrenheit.equals(null);
+        Assertions.assertFalse(nullCheck);
+    }
 }

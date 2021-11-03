@@ -1,6 +1,8 @@
 package com.quantitymesurement;
 
-import java.util.Objects;
+/**
+ * @author KUNAL SURYAWANSHI
+ */
 
 public class Temprature {
     public final double value;
