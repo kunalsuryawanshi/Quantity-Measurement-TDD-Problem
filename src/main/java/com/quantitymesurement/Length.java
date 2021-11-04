@@ -4,11 +4,7 @@ package com.quantitymesurement;
  * @author KUNAL SURYAWANSHI
  */
 public class Length {
-    private static final double FEET_TO_INCH = 12.0;
-    private static final double FEET_TO_YARD = 3.0;
-    private static final double YARD_TO_INCH = 36.0;
-    private static final double INCH_TO_CENTIMETER = 2.5;
-    private final Double value;
+    public final Double value;
     private final Unit unit;
 
     public Length(Unit unit, Double value) {
@@ -20,24 +16,10 @@ public class Length {
      * Purpose : Compare the Lengths
      *
      * @param that : Taking Lengths
-     * @return : if Matches then returning Converted Values
+     * @return : Converted Values
      */
     public boolean compare(Length that) {
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value * FEET_TO_INCH, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.FEET))
-            return Double.compare(this.value / FEET_TO_INCH, that.value) == 0;
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.YARD))
-            return Double.compare(this.value / FEET_TO_YARD, that.value) == 0;
-        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value * YARD_TO_INCH, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.YARD))
-            return Double.compare(this.value / YARD_TO_INCH, that.value) == 0;
-        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.FEET))
-            return Double.compare(this.value * FEET_TO_YARD, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.CENTIMETER))
-            return Double.compare(this.value * INCH_TO_CENTIMETER, that.value) == 0;
-        return false;
+        return Double.compare(this.unit.convertToBaseUnit(this), that.unit.convertToBaseUnit(that)) == 0;
     }
 
     /**
@@ -47,15 +29,7 @@ public class Length {
      * @return addition of the two lengths
      */
     public double addTwoLengths(Length that) {
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.INCH))
-            return this.value + that.value;
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.INCH))
-            return this.value * FEET_TO_INCH + that.value;
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.FEET))
-            return this.value * FEET_TO_INCH + that.value * FEET_TO_INCH;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.CENTIMETER))
-            return this.value + that.value / INCH_TO_CENTIMETER;
-        return 0;
+          return  this.unit.convertToBaseUnit(this) + that.unit.convertToBaseUnit(that);
     }
 
     @Override
@@ -67,6 +41,22 @@ public class Length {
     }
 
     enum Unit {
-        FEET, INCH, YARD, CENTIMETER
+        FEET(12.0), INCH(1.0), YARD(36.0), CENTIMETER(0.4);
+
+        private final double baseUnitConversion;
+
+        Unit(double baseUnitConversion) {
+            this.baseUnitConversion = baseUnitConversion;
+        }
+
+        /**
+         * Purpose : To Convert Into Base Value
+         *
+         * @param l1 Taking Length
+         * @return Converted Value
+         */
+        public double convertToBaseUnit(Length l1) {
+            return (l1.value * baseUnitConversion);
+        }
     }
 }

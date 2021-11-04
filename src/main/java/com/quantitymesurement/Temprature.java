@@ -26,7 +26,7 @@ public class Temprature {
      *
      * @return Celcius
      */
-    public double compare() {
+    public double convert() {
         return (this.value - 32) * 5 / 9;
     }
 

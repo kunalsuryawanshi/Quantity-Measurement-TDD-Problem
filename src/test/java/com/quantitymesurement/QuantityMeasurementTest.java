@@ -445,7 +445,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given212FahrenheitAnd100C_WhenCompared_ShouldReturnEqual() {
         Temprature fahrenheit = new Temprature(Temprature.Unit.FAHRENHEIT, 212.0);
-        double celsius = fahrenheit.compare();
-        Assertions.assertEquals(100.0,celsius);
+        double celsius = fahrenheit.convert();
+        Assertions.assertEquals(100.0, celsius);
     }
 }
