@@ -22,9 +22,9 @@ public class Temprature {
     }
 
     /**
-     * Purpose : To Convert Value Fahrenheit to Celcius
+     * Purpose : To Convert Value Fahrenheit to Celsius
      *
-     * @return Celcius
+     * @return Celsius
      */
     public double convert() {
         return (this.value - 32) * 5 / 9;

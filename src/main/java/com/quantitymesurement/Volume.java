@@ -1,10 +1,11 @@
 package com.quantitymesurement;
+/**
+ * @author KUNAL SURYAWANSHI
+ */
 
 import java.util.Objects;
 
 public class Volume {
-    private static final Double GALLON_TO_LITRE = 3.78;
-    private static final Double LITRE_TO_ML = 1000.0;
     private final Double value;
     private final Unit unit;
 
@@ -20,11 +21,7 @@ public class Volume {
      * @return if Matches return Converted Values
      */
     public boolean compare(Volume that) {
-        if (this.unit.equals(Unit.GALLON) && that.unit.equals(Unit.LITRE))
-            return Double.compare(this.value * GALLON_TO_LITRE, that.value) == 0;
-        if (this.unit.equals(Unit.LITRE) && that.unit.equals(Unit.MILLI_LITRE))
-            return Double.compare(this.value * LITRE_TO_ML, that.value) == 0;
-        return false;
+        return Double.compare(this.unit.convertToBaseUnit(this), that.unit.convertToBaseUnit(that)) == 0;
     }
 
     @Override
@@ -35,13 +32,33 @@ public class Volume {
         return Objects.equals(value, volume.value) && unit == volume.unit;
     }
 
+    /**
+     * Purpose To add Two Volumes
+     *
+     * @param that = Volume
+     * @return Addition of Two Volumes
+     */
     public double addTwoVolumes(Volume that) {
-        if (this.unit.equals(Unit.GALLON) && that.unit.equals(Unit.LITRE))
-            return this.value * GALLON_TO_LITRE + that.value;
-        if (this.unit.equals(Unit.LITRE) && that.unit.equals(Unit.MILLI_LITRE))
-            return this.value + that.value / LITRE_TO_ML;
-        return 0;
+        return this.unit.convertToBaseUnit(this) + that.unit.convertToBaseUnit(that);
     }
 
-    enum Unit {GALLON, LITRE, MILLI_LITRE}
+    enum Unit {
+        GALLON(3.78), LITRE(1.0), MILLI_LITRE(0.001);
+
+        private final double baseUnitConversion;
+
+        Unit(double baseUnitConversion) {
+            this.baseUnitConversion = baseUnitConversion;
+        }
+
+        /**
+         * Purpose : To Convert Into Base Value
+         *
+         * @param v1 Taking Volume
+         * @return Converted Value
+         */
+        public double convertToBaseUnit(Volume v1) {
+            return (v1.value * baseUnitConversion);
+        }
+    }
 }

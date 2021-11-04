@@ -6,8 +6,6 @@ package com.quantitymesurement;
 import java.util.Objects;
 
 public class Weight {
-    private static final Double KG_INTO_GRAMS = 1000.0;
-    private static final Double TONNE_TO_KG = 1000.0;
     public final Double value;
     public final Unit unit;
 
@@ -23,9 +21,7 @@ public class Weight {
      * @return if Units Matches Return Converted Values
      */
     public boolean compare(Weight that) {
-        if (this.unit.equals(Unit.KILOGRAM) && that.unit.equals(Unit.GRAMS))
-            return Double.compare(this.value * KG_INTO_GRAMS, that.value) == 0;
-        return false;
+        return Double.compare(this.unit.convertToBaseUnit(this), that.unit.convertToBaseUnit(that)) == 0;
     }
 
     @Override
@@ -36,11 +32,33 @@ public class Weight {
         return Objects.equals(value, weight.value) && unit == weight.unit;
     }
 
+    /**
+     * Purpose : To Add Weights
+     *
+     * @param that : Taking Lengths
+     * @return addition of the two lengths
+     */
     public double addTwoWeights(Weight that) {
-        if (this.unit.equals(Unit.TONNE) && that.unit.equals(Unit.GRAMS))
-            return this.value * TONNE_TO_KG + that.value / KG_INTO_GRAMS;
-        return 0;
+        return this.unit.convertToBaseUnit(this) + that.unit.convertToBaseUnit(that);
     }
 
-    enum Unit {KILOGRAM, GRAMS, TONNE}
+    enum Unit {
+        KILOGRAM(1.0), GRAMS(0.001), TONNE(1000.0);
+
+        private final double baseUnitConversion;
+
+        Unit(double baseUnitConversion) {
+            this.baseUnitConversion = baseUnitConversion;
+        }
+
+        /**
+         * Purpose : To Convert Into Base Value
+         *
+         * @param w1 Taking Weight
+         * @return Converted Value
+         */
+        public double convertToBaseUnit(Weight w1) {
+            return w1.value * baseUnitConversion;
+        }
+    }
 }

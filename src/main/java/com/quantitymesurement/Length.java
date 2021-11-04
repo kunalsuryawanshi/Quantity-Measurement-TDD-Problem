@@ -3,6 +3,7 @@ package com.quantitymesurement;
 /**
  * @author KUNAL SURYAWANSHI
  */
+
 public class Length {
     public final Double value;
     private final Unit unit;
@@ -29,7 +30,7 @@ public class Length {
      * @return addition of the two lengths
      */
     public double addTwoLengths(Length that) {
-          return  this.unit.convertToBaseUnit(this) + that.unit.convertToBaseUnit(that);
+        return this.unit.convertToBaseUnit(this) + that.unit.convertToBaseUnit(that);
     }
 
     @Override
