@@ -1,14 +1,16 @@
 package com.quantitymesurement;
 
 /**
+ * Purpose : To Compare Units and Calculate
+ *
  * @author KUNAL SURYAWANSHI
  */
 
-public class Length {
+public class UnitMeasurementSystem {
     public final Double value;
-    private final Unit unit;
+    private final MeasurementUnits unit;
 
-    public Length(Unit unit, Double value) {
+    public UnitMeasurementSystem(MeasurementUnits unit, Double value) {
         this.unit = unit;
         this.value = value;
     }
@@ -19,7 +21,7 @@ public class Length {
      * @param that : Taking Lengths
      * @return : Converted Values
      */
-    public boolean compare(Length that) {
+    public boolean compare(UnitMeasurementSystem that) {
         return Double.compare(this.unit.convertToBaseUnit(this), that.unit.convertToBaseUnit(that)) == 0;
     }
 
@@ -29,7 +31,7 @@ public class Length {
      * @param that : Taking Lengths
      * @return addition of the two lengths
      */
-    public double addTwoLengths(Length that) {
+    public double addTwoLengths(UnitMeasurementSystem that) {
         return this.unit.convertToBaseUnit(this) + that.unit.convertToBaseUnit(that);
     }
 
@@ -37,27 +39,7 @@ public class Length {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Length length = (Length) o;
-        return Double.compare(length.value, value) == 0 && unit == length.unit;
-    }
-
-    enum Unit {
-        FEET(12.0), INCH(1.0), YARD(36.0), CENTIMETER(0.4);
-
-        private final double baseUnitConversion;
-
-        Unit(double baseUnitConversion) {
-            this.baseUnitConversion = baseUnitConversion;
-        }
-
-        /**
-         * Purpose : To Convert Into Base Value
-         *
-         * @param l1 Taking Length
-         * @return Converted Value
-         */
-        public double convertToBaseUnit(Length l1) {
-            return (l1.value * baseUnitConversion);
-        }
+        UnitMeasurementSystem unitMeasurementSystem = (UnitMeasurementSystem) o;
+        return Double.compare(unitMeasurementSystem.value, value) == 0 && unit == unitMeasurementSystem.unit;
     }
 }

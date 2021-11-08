@@ -1,14 +1,15 @@
 package com.quantitymesurement;
 
 /**
+ * Purpose : To Convert Temperature
  * @author KUNAL SURYAWANSHI
  */
 
-public class Temprature {
+public class Temperature {
     public final double value;
     public final Unit unit;
 
-    public Temprature(Unit unit, double value) {
+    public Temperature(Unit unit, double value) {
         this.unit = unit;
         this.value = value;
     }
@@ -17,7 +18,7 @@ public class Temprature {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Temprature that = (Temprature) o;
+        Temperature that = (Temperature) o;
         return Double.compare(that.value, value) == 0;
     }
 
@@ -26,9 +27,13 @@ public class Temprature {
      *
      * @return Celsius
      */
-    public double convert() {
+    public double convertFahrenheitToCelsius() {
         return (this.value - 32) * 5 / 9;
     }
 
-    enum Unit {FAHRENHEIT}
+    public double convertCelsiusToFahrenheit() {
+        return (this.value * 9 / 5) + 32;
+    }
+
+    enum Unit {FAHRENHEIT, CELSIUS}
 }
